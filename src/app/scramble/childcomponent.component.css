@@ -1,0 +1,13 @@
+div{
+    margin: 5px 5px 5px 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.scrambleResult {
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+}

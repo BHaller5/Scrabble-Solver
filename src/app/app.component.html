@@ -1,21 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+      <div class="puzzleParent" >
+        <div class="parentBody">
+
+          <br><br>
+          <h3 class="parentTitle">Word Puzzle Helper</h3>
+          <br><br><br>
+
+          <div class="textbox">
+            <input type="text" [(ngModel)] = "pText" size="60rem">
+          </div>
+         <br>
+         <div id="button_box">
+         <div class="option_buttons">
+           
+          <!-- Clicking a button will display the selected child component -->
+          <!-- These button clicks are what will be used to activate javascript/python method calls -->
+          <input type="button" name="type" value="Scramble"  class="btn btn-danger btn-sm"
+            (click)="showScramble = true; showUnscramble = false; showScrabble = false; scrambleFunction()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type="button" name="type" value="Unscramble" class="btn btn-success btn-sm"
+            (click)="showUnscramble = true; showScramble = false; showScrabble = false; unscrambleFunction()"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type="button" name="type" value="Scrabble" class="btn btn-primary btn-sm"
+            (click)="showScrabble = true; showScramble = false; showUnscramble = false; scrabble()">
+         </div>
+         </div>
+         <br><br><br>
+          
+          <div class="container">
+                  <app-childcomponent  [inputText] = "pText"
+                  [inputResults] = "results"                 
+                  *ngIf="showScramble" (scrambleClick)=          
+                  "showScramble = false"></app-childcomponent> <!-- Displays the text in the textbox and hides the Scramble component when another button is clicked -->
+
+                  <app-unscramble [inputText] = "pText"
+                  [unscrambleResults] = "formattedUnscrambled"
+                  *ngIf="showUnscramble" (unscrambleClick)=
+                  "showUnscramble = false"></app-unscramble>   <!-- Same as above, but for Unscramble component -->
+
+                  <app-scrabble [inputText] = "pText"
+                  [scrabbleResults] = "finishedScrabble"
+                  [s7] = "scrabble7"
+                  [s6] = "scrabble6"
+                  [s5] = "scrabble5"
+                  [s4] = "scrabble4"
+                  [s3] = "scrabble3"
+                  [s2] = "scrabble2"
+                  *ngIf="showScrabble" (unscrambleClick)=
+                  "showScrabble = false"></app-scrabble>       <!-- Same as above, but for Scrabble component -->
+
+          </div>
+        </div>
+      </div>
+
+

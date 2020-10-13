@@ -1,0 +1,19 @@
+h3 {
+    text-align: center;
+    font-size: 4em;
+}
+
+.textbox {
+    width: 26%;
+    margin: 0 auto;
+}
+
+#button_box {
+    width: 100%;
+    text-align: center;
+}
+
+.option_buttons {
+    display: inline-block;
+}
+

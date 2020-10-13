@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChildcomponentComponent } from './scramble/childcomponent.component';
+import { UnscrambleComponent } from './unscramble/unscramble.component';
+import { ScrabbleComponent } from './scrabble/scrabble.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChildcomponentComponent,
+    UnscrambleComponent,
+    ScrabbleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
